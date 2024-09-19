@@ -23,7 +23,7 @@ public class Druide {
 	}
 
 	private String prendreParole() {
-		return "Le druire " + nom + " : ";
+		return "Le druide " + nom + " : ";
 
 	}
 }

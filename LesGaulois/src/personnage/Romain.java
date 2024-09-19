@@ -30,4 +30,13 @@ public class Romain {
 		}
 		
 	}
+	public static void main(String[] args) {
+		Romain minus = new Romain("Minus",6);
+		Gaulois asterix = new Gaulois("Asterix",8);
+		
+		minus.parler("UN GAU...UN GAUGAU...");
+		minus.recevoirCoup(8/3);
+	}
+	
+	
 }
