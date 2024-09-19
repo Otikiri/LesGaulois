@@ -11,7 +11,7 @@ public class Druide {
 		this.nom = nom;
 		this.effetPotionMin = effetPotionMin;
 		this.effetPotionMax = effetPotionMax;
-		parler("Bonjour, je suis le druide " + nom + "et ma potion magique peut aller d'une force " + effetPotionMin
+		parler("Bonjour, je suis le druide " + nom + " et ma potion magique peut aller d'une force " + effetPotionMin
 				+ " a " + effetPotionMax);
 
 	}
@@ -24,15 +24,15 @@ public class Druide {
 		System.out.println(prendreParole() + "< " + texte + " >");
 	}
 
-	public int preparerPotion(int effetPotionMax) {
+	public int preparerPotion(int effetPotionMax, int effetPotionMin) {
 		Random random = new Random();
-		int valpot = random.nextInt(effetPotionMax);
+		int valpot = random.nextInt(effetPotionMax - effetPotionMin + 1) + effetPotionMin;
 		if (valpot >= 7) {
-			System.out.println("J'ai prepare une super potion de force");
+			parler("J'ai prepare une super potion de force");
 			return valpot;
 
 		} else {
-			System.out.println("Je n'ai pas trouve tous les ingredients, ma potion est seulement de force");
+			parler("Je n'ai pas trouve tous les ingredients, ma potion est seulement de force " + valpot);
 			return valpot;
 		}
 
@@ -42,11 +42,24 @@ public class Druide {
 		return "Le druide " + nom + " : ";
 
 	}
-	
+
+	public void booster(Gaulois gaulois, int efftPot) {
+		if ("Obelisk".equals(gaulois.getNom())) {
+			parler("Non " + gaulois.getNom() + " !... Tu n'aura pas de potion magique");
+		} else {
+			gaulois.boirePotion(efftPot);
+		}
+	}
+
 	public static void main(String[] args) {
-		Druide pano = new Druide("Panoramix",5,10);
-		int force = pano.preparerPotion(10);
-		System.out.println(force);
-		
+		int efPmin = 5;
+		int efPmax = 10;
+		Druide pano = new Druide("Panoramix", efPmin, efPmax);
+		int valpot = pano.preparerPotion(efPmax, efPmin);
+
+		Gaulois obe = new Gaulois("Obelisk", 25);
+		Gaulois ast = new Gaulois("Asterix", 8);
+		pano.booster(obe, valpot);
+		pano.booster(ast, valpot);
 	}
 }

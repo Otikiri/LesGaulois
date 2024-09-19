@@ -26,13 +26,12 @@ public class Romain {
 		if (force > 0) {
 			parler("Aie");
 		} else {
-			parler("J'abandonne");
+			parler("J'abandonne...");
 		}
 		
 	}
 	public static void main(String[] args) {
 		Romain minus = new Romain("Minus",6);
-		Gaulois asterix = new Gaulois("Asterix",8);
 		
 		minus.parler("UN GAU...UN GAUGAU...");
 		minus.recevoirCoup(8/3);
