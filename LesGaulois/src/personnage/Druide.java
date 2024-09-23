@@ -61,5 +61,6 @@ public class Druide {
 		Gaulois ast = new Gaulois("Asterix", 8);
 		pano.booster(obe, valpot);
 		pano.booster(ast, valpot);
+
 	}
 }
