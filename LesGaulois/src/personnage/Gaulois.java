@@ -27,6 +27,7 @@ public class Gaulois {
 
 	private String prendreParole() {
 		return "Le gaulois " + nom + " : ";
+	}
 	
 
 //	public void frapper(Romain romain) {
@@ -36,7 +37,7 @@ public class Gaulois {
 
 	public void frapper(Romain romain) {
 		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
-		Equipement trophees1[] = romain.recevoirCoup((force / 3) * effetPotion);
+		Equipement[] trophees1 = romain.recevoirCoup((force / 3) * effetPotion);
 		for (int i = 0; trophees1 != null && i < trophees1.length; i++, nbTrophees++) {
 			this.trophees[nbTrophees] = trophees1[i];
 		}
