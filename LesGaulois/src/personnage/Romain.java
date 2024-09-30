@@ -75,7 +75,10 @@ public class Romain {
 
 		if (force > 0) {
 			if (force < oldForce) {
-				vainqueur = true; 
+				vainqueur = false; 
+			}
+			else {
+				vainqueur = true;
 			}
 			parler("Aïe");
 		} else {
