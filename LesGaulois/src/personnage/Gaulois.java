@@ -1,5 +1,7 @@
 package personnage;
 
+import villagegaulois.Musee;
+
 public class Gaulois {
 	private String nom;
 	private int effetPotion = 1;
@@ -36,7 +38,7 @@ public class Gaulois {
 //	}
 
 	public void frapper(Romain romain) {
-		System.out.println(nom + " envoie un grand coup dans la m�choire de " + romain.getNom());
+		System.out.println(nom + " envoie un grand coup dans la machoire de " + romain.getNom());
 		Equipement[] trophees1 = romain.recevoirCoup((force / 3) * effetPotion);
 		for (int i = 0; trophees1 != null && i < trophees1.length; i++, nbTrophees++) {
 			this.trophees[nbTrophees] = trophees1[i];
@@ -48,6 +50,16 @@ public class Gaulois {
 		parler("Merci Druide, je sens que ma force est " + effetPotDruide + " fois decuplee");
 	}
 
+	public void faireUneDonnation(Musee musee) {
+		if (nbTrophees>0) { 
+			parler("Je donne au musee mes trophee");
+			for (int i = 0; i < nbTrophees;i++) {
+				System.out.println(trophees[nbTrophees]);
+				musee.donnerTrophee(this, trophees[nbTrophees]);
+			}
+		}
+		System.out.println(nom+" n'a pas de trophee!");
+	}
 //	@Override
 //	public String toString() {
 //		return "Gaulois [nom=" + nom + ", force=" + force + ", effetPotion=" + effetPotion + "]";
@@ -61,6 +73,8 @@ public class Gaulois {
 		asterix.parler("Bonjour a tous!");
 		asterix.boirePotion(valpot);
 		asterix.frapper(minus);
+		
+		
 
 	}
 
