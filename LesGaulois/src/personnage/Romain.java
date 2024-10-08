@@ -6,6 +6,7 @@ public class Romain {
 	private int nbEquipement = 0;
 	private boolean vainqueur;
 	private Equipement[] equipements = new Equipement[2];
+	public static final String SOLDAT = "Le soldat";
 
 	public Romain(String nom, int force) {
 		this.nom = nom;
@@ -35,13 +36,13 @@ public class Romain {
 		return "Le romain " + nom + " : ";
 	}
 
-	public void sEquiper(Romain romain, Equipement equipementAraj) {
+	public void sEquiper(Equipement equipementAraj) {
 		if (nbEquipement == equipements.length) {
-			System.out.println("Le soldat " + romain.getNom() + " est deja bien protege !");
+			System.out.println(SOLDAT + nom + " est deja bien protege !");
 		} else if (nbEquipement > 0 && equipements[nbEquipement - 1] == equipementAraj) {
-			System.out.println("Le soldat " + romain.getNom() + " possede deja un " + equipementAraj + "!");
+			System.out.println(SOLDAT + nom + " possede deja un " + equipementAraj + "!");
 		} else {
-			System.out.println("Le soldat " + romain.getNom() + " s'equipe avec un " + equipementAraj + "!");
+			System.out.println(SOLDAT + nom + " s'equipe avec un " + equipementAraj + "!");
 			equipements[nbEquipement] = equipementAraj;
 			nbEquipement++;
 		}
@@ -117,6 +118,7 @@ public class Romain {
 				if ((equipements[i] != null && equipements[i].equals(Equipement.BOUCLIER))) {
 					resistanceEquipement += 8;
 				} else {
+					System.out.println("Equipement casque");
 					resistanceEquipement += 5;
 				}
 			}

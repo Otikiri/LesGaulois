@@ -22,9 +22,9 @@ public class Scenario {
 		/* asterix.parler("Bonjour"); */
 		Romain minus = new Romain("Minus", 6);
 		Romain milexcus = new Romain("Milexcus", 8);
-		minus.sEquiper(milexcus, Equipement.BOUCLIER);
-		minus.sEquiper(milexcus, Equipement.CASQUE);
-		milexcus.sEquiper(milexcus, Equipement.CASQUE);
+		minus.sEquiper(Equipement.BOUCLIER);
+		minus.sEquiper(Equipement.CASQUE);
+		milexcus.sEquiper(Equipement.CASQUE);
 		/* minus.parler("UN GAU... UN GAUGAU..."); */
 		do {
 			asterix.frapper(minus);
@@ -33,12 +33,9 @@ public class Scenario {
 		do {
 			asterix.frapper(milexcus);
 		} while (milexcus.getForce() > 0);
-		
-		
 
-		Musee musee = new Musee("musee"); 
+		Musee musee = new Musee("musee");
 		asterix.faireUneDonnation(musee);
-
 
 	}
 

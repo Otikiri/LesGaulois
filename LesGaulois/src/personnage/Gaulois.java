@@ -7,11 +7,12 @@ public class Gaulois {
 	private int effetPotion = 1;
 	private int force;
 	private int nbTrophees;
-	private Equipement[] trophees = new Equipement[100];
+	private Equipement[] trophees;
 
 	public Gaulois(String nom, int force) {
 		this.nom = nom;
 		this.force = force;
+		trophees = new Equipement[100];
 	}
 
 	// returns the name
@@ -30,7 +31,6 @@ public class Gaulois {
 	private String prendreParole() {
 		return "Le gaulois " + nom + " : ";
 	}
-	
 
 //	public void frapper(Romain romain) {
 //		System.out.println(nom + " envoir un grand coup dans la machoire de " + romain.getNom());
@@ -51,14 +51,14 @@ public class Gaulois {
 	}
 
 	public void faireUneDonnation(Musee musee) {
-		if (nbTrophees>0) { 
+		if (nbTrophees > 0) {
 			parler("Je donne au musee mes trophee");
-			for (int i = 0; i < nbTrophees;i++) {
-				System.out.println(trophees[nbTrophees]);
-				musee.donnerTrophee(this, trophees[nbTrophees]);
+			for (int i = 0; i < nbTrophees; i++) {
+				System.out.println("- " + trophees[i]);
+				musee.donnerTrophee(this, trophees[i]);
 			}
 		}
-		System.out.println(nom+" n'a pas de trophee!");
+		System.out.println(nom + " n'a pas de trophee!");
 	}
 //	@Override
 //	public String toString() {
@@ -72,9 +72,15 @@ public class Gaulois {
 		int valpot = pano.preparerPotion();
 		asterix.parler("Bonjour a tous!");
 		asterix.boirePotion(valpot);
-		asterix.frapper(minus);
-		
-		
+
+		Romain milexcus = new Romain("Milexcus", 8);
+		minus.sEquiper(Equipement.BOUCLIER);
+		minus.sEquiper(Equipement.CASQUE);
+		milexcus.sEquiper(Equipement.CASQUE);
+		/* minus.parler("UN GAU... UN GAUGAU..."); */
+		do {
+			asterix.frapper(minus);
+		} while (minus.getForce() > 0);
 
 	}
 
