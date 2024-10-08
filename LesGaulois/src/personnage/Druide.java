@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Druide {
 	private String nom;
-	private int effetPotionMin = 1;
+	private int effetPotionMin = 5;
 	private int effetPotionMax = 1;
 
 	public Druide(String nom, int effetPotionMin, int effetPotionMax) {
@@ -61,5 +61,6 @@ public class Druide {
 		Gaulois ast = new Gaulois("Asterix", 8);
 		pano.booster(obe, valpot);
 		pano.booster(ast, valpot);
+
 	}
 }
