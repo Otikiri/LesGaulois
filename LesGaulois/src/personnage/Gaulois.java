@@ -36,7 +36,7 @@ public class Gaulois {
 //	}
 
 	public void frapper(Romain romain) {
-		System.out.println(nom + " envoie un grand coup dans la mâchoire de " + romain.getNom());
+		System.out.println(nom + " envoie un grand coup dans la mï¿½choire de " + romain.getNom());
 		Equipement[] trophees1 = romain.recevoirCoup((force / 3) * effetPotion);
 		for (int i = 0; trophees1 != null && i < trophees1.length; i++, nbTrophees++) {
 			this.trophees[nbTrophees] = trophees1[i];
@@ -57,7 +57,7 @@ public class Gaulois {
 		Gaulois asterix = new Gaulois("Asterix", 8);
 		Romain minus = new Romain("Minus", 6);
 		Druide pano = new Druide("Panoramix", 5, 10);
-		int valpot = pano.preparerPotion(10, 5);
+		int valpot = pano.preparerPotion();
 		asterix.parler("Bonjour a tous!");
 		asterix.boirePotion(valpot);
 		asterix.frapper(minus);

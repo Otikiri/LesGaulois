@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class Druide {
 	private String nom;
-	private int effetPotionMin = 5;
+	private int effetPotionMin = 1;
 	private int effetPotionMax = 1;
 
 	public Druide(String nom, int effetPotionMin, int effetPotionMax) {
@@ -24,18 +24,15 @@ public class Druide {
 		System.out.println(prendreParole() + "< " + texte + " >");
 	}
 
-	public int preparerPotion(int effetPotionMax, int effetPotionMin) {
+	public int preparerPotion() {
 		Random random = new Random();
 		int valpot = random.nextInt(effetPotionMax - effetPotionMin + 1) + effetPotionMin;
 		if (valpot >= 7) {
-			parler("J'ai prepare une super potion de force");
-			return valpot;
-
+			parler("J'ai prepare une super potion de force " + valpot);
 		} else {
-			parler("Je n'ai pas trouve tous les ingredients, ma potion est seulement de force " + valpot);
-			return valpot;
+			parler("Je n'ai pas trouve les ingredient, ma potion est seulement de force " + valpot);
 		}
-
+		return valpot;
 	}
 
 	private String prendreParole() {
@@ -55,7 +52,7 @@ public class Druide {
 		int efPmin = 5;
 		int efPmax = 10;
 		Druide pano = new Druide("Panoramix", efPmin, efPmax);
-		int valpot = pano.preparerPotion(efPmax, efPmin);
+		int valpot = pano.preparerPotion();
 
 		Gaulois obe = new Gaulois("Obelisk", 25);
 		Gaulois ast = new Gaulois("Asterix", 8);

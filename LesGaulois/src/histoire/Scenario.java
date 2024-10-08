@@ -11,7 +11,7 @@ public class Scenario {
 	public static void main(String[] args) {
 		Druide druide = new Druide("Panoramix", 5, 10);
 		druide.parler("Je vais aller préparer une petite potion...");
-		int valpot = druide.preparerPotion(10, 5);
+		int valpot = druide.preparerPotion();
 		Gaulois obelix = new Gaulois("Obélix", 25);
 		Gaulois asterix = new Gaulois("Astérix", 8);
 		druide.booster(obelix, valpot);
